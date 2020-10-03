@@ -1,20 +1,21 @@
 package homework3;
 
 public class Rectangle {
-    int recWidth, recHeight;
-    public Rectangle(int width, int height){
-        this.recHeight = height;
-        this.recWidth = width;
+    int w, h;
+    public Rectangle(int w, int h){
+        this.w = w;
+        this.h = h;
     }
     public Rectangle() {
-        recWidth = 10;
-        recHeight = 5;
+        w = 10;
+        h = 5;
     }
-    static int perimeter(int width, int height) {
-        return width + height;
+    int perimeter() {
+        return (w + h) * 2;
     }
-    static int area(int width, int height) {
-        return width * height;
+    int area() {
+        return w * h;
     }
+
 
 }

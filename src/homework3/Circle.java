@@ -1,22 +1,22 @@
 package homework3;
 
 public class Circle {
-    double rad, diam;
+    double radius, diameter;
 
-    public void setDiam(double diam) {
-        this.diam = diam;
+    public Circle (double r, double d) {
+        radius = r;
+        diameter = d;
+    }
+    public Circle() {
+        diameter = 11.2f;
+        radius = 11.2f;
     }
 
-    public void setRad(double rad) {
-        this.rad = rad;
+    double area() {
+        return (Math.PI * (Math.pow((diameter / 2), 2)));
     }
 
-
-    public double area(double diam) {
-        return (Math.PI * (Math.pow((diam / 2), 2)));
-    }
-
-    public double length(double rad) {
-        return (rad * 2 * Math.PI);
+    double length() {
+        return (radius * 2 * Math.PI);
     }
 }
