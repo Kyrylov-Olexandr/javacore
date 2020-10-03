@@ -9,7 +9,7 @@ public class Circle {
     }
     public Circle() {
         diameter = 11.2f;
-        radius = 11.2f;
+        radius = 6.1f;
     }
 
     double area() {
