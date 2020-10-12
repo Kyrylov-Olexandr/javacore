@@ -7,6 +7,7 @@ public class Main {
         var plus = myCalculator.plus(5,4);
         var devide = myCalculator.devide(5, 4);
         var multiply = myCalculator.multiply(5, 4);
+        
         System.out.println(
                 "Minus = " + minus + "\n" +
                 "Plus = " + plus + "\n" +
