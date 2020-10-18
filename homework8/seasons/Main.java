@@ -37,63 +37,63 @@ public class Main {
                 switch (choice) {
                     case "1":
                         for (Months sameSeason : Months.values()) {
-                            if (elem.getSeason().equals(sameSeason.getSeason()) && sameSeason.name.equalsIgnoreCase(elem.name) == false) {
-                                System.out.println(sameSeason.name());
+                            if (elem.getSeason().equals(sameSeason.getSeason())) {
+                                System.out.println(sameSeason.getName());
                             }
                         }
+                        break;
 
                     case "2":
                         for (Months sameDays : Months.values()) {
-                            if (elem.getDay() == sameDays.getDay() && sameDays.name.equalsIgnoreCase(elem.name) == false) {
-                                System.out.println(sameDays.name);
+                            if (elem.getDay() == sameDays.getDay()) {
+                                System.out.println(sameDays.getName());
                             }
                         }
+                        break;
 
                     case "3":
                         for (Months lessDays : Months.values()) {
                             if (elem.getDay() > lessDays.getDay()) {
-                                System.out.println(lessDays.name);
+                                System.out.println(lessDays.getName());
                             }
                         }
+                        break;
 
                     case "4":
                         for (Months moreDays : Months.values()) {
                             if (elem.getDay() < moreDays.getDay()) {
-                                System.out.println(moreDays.name);
+                                System.out.println(moreDays.getName());
                             }
                         }
+                        break;
 
                     case "5":
-                        System.out.println(elem.getSeason().values()[indexOfSeason + 1]);
+                        System.out.println(indexOfSeason < 3 ? elem.getSeason().values()[indexOfSeason + 1] : elem.getSeason().values()[indexOfSeason - 3]);
+                        break;
 
                     case "6":
-                        System.out.println(elem.getSeason().values()[indexOfSeason - 1]);
+                        System.out.println(indexOfSeason > 0 ? elem.getSeason().values()[indexOfSeason - 1] : elem.getSeason().values()[indexOfSeason + 3]);
+                        break;
 
                     case "7":
                         for (Months evenDays : Months.values()) {
                             if (evenDays.getDay() % 2 == 0) {
-                                System.out.println(evenDays.name);
-                            } else {
-                                continue;
+                                System.out.println(evenDays.getName());
                             }
                         }
-
+                        break;
                     case "8":
                         for (Months evenDays : Months.values()) {
                             if (evenDays.getDay() % 2 != 0) {
-                                System.out.println(evenDays.name);
-                            } else {
-                                continue;
+                                System.out.println(evenDays.getName());
                             }
                         }
-
+                        break;
                     case "9":
-                        System.out.println(elem.getDay() % 2 == 0 ? elem.name + " has an even number of days (" + elem.getDay() + ")." : elem.name + "has an add number of days (" + elem.getDay() + ")");
-
+                        System.out.println(elem.getDay() % 2 == 0 ? elem.getName() + " has an even number of days (" + elem.getDay() + ")." : elem.getName() + "has an add number of days (" + elem.getDay() + ")");
+                        break;
                 }
 
-            } else {
-                System.out.println("Months not found!");
             }
         }
     }

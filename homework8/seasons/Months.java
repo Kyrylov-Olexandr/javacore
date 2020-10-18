@@ -24,6 +24,10 @@ public enum Months {
         this.season = season;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public int getDay() {
         return day;
     }
