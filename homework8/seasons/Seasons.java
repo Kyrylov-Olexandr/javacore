@@ -1,4 +1,4 @@
-package homework7.seasons;
+package homework8.seasons;
 
 public enum Seasons {
     WINTER("Winter"),

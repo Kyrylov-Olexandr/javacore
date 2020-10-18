@@ -1,4 +1,4 @@
-package homework7.seasons;
+package homework8.seasons;
 
 public enum Months {
     JANUARY("January", 31, Seasons.WINTER),
@@ -22,9 +22,6 @@ public enum Months {
         this.name = name;
         this.day = day;
         this.season = season;
-    }
-    public String getName () {
-        return name;
     }
 
     public int getDay() {
