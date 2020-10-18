@@ -5,7 +5,7 @@ public interface Salary {
     int hour = 5;
 
     default String salary(int monthOrHour, int num) {
-        String hourSalary = "За " + num + " годин прцівник заробив " + (hour * num) + "$";
+        String hourSalary = "За " + num + " годин працівник заробив " + (hour * num) + "$";
         return hourSalary;
     }
 
