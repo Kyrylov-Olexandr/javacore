@@ -1,9 +1,24 @@
 package javacore.homework17;
 
-import java.util.NoSuchElementException;
 
 public class Collection {
+    static class Anonymous{
+        void isOdd(){}
+    }
+
+    static class Static {
+        void makeOdd() {
+            for (Object elem : Collection.array) {
+                int index = 0;
+                if ((Integer) elem % 2 == 0) {
+                    System.out.println((Integer)elem+1);
+                }
+                index+=2;
+            }
+        }
+    }
     /*
+
 
     Створити інтерфейс Iterator, в якому оголосити метод hasNext(), next(). Створити клас Collection,в якого оголосити як поле масив типу Number.
     Створити конструктор з визначеними параметрами куди передати даний масив. Створити два внутрішніх класи, які імплементуватимуть інтерфейс Iterator.
@@ -25,7 +40,7 @@ public class Collection {
 
      */
 
-    private static Object[] array;
+    public static Object[] array;
 
     public Collection(Number[] array) {
         Collection.array = array;
@@ -39,6 +54,8 @@ public class Collection {
         return new BackwardIterator();
     }
 
+
+
     static class ForwardIterator implements Iterator {
 
         int index = 0;
@@ -50,22 +67,27 @@ public class Collection {
         }
 
         @Override
-        public Object next() throws NoSuchElementException {
-            return array[index++];
+        public Object next(){
+            return array[++index];
         }
 
 
     }
+
     static class BackwardIterator implements Iterator {
+
+        int index = array.length - 1;
         @Override
         public boolean hasNext() {
-            return false;
+            return index <= array.length && index < 0;
         }
 
         @Override
-        public Number next() {
-            return null;
+        public Object next() {
+            return array[index -= 2];
         }
     }
+
+
 
 }

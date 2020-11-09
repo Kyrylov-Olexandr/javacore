@@ -1,7 +1,6 @@
 package javacore.homework17;
 
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Set;
 
 public class Main {
@@ -25,12 +24,49 @@ public class Main {
     тоді зробити з нього непарний і вивести дані елементи на консоль
 
      */
-    public static void main(String[] args) {
-        Integer[] a = {1,2,3,4};
-        Collection collection = new Collection(a);
-        System.out.println(collection.getForwardIterator().next());
-        System.out.println(collection.getForwardIterator().next());
-        System.out.println(collection.getForwardIterator().index);
 
+
+    public static void main(String[] args) {
+        //task 1-2
+        Integer[] a = {1,2,3,4,5,6,7,8,9,10,11};
+        Collection collection = new Collection(a);
+        Collection.ForwardIterator forwardIterator = collection.getForwardIterator();
+        Collection.BackwardIterator backwardIterator = collection.getBackwardIterator();
+        System.out.println(
+                forwardIterator.hasNext() + "\n" +
+                forwardIterator.next() + "\n" +
+                backwardIterator.hasNext() + "\n" +
+                backwardIterator.next() + "\n"
+        );
+
+        //task 3-5
+        Collection.Anonymous anonymous = new Collection.Anonymous() {
+            @Override
+            void isOdd() {
+
+                for (Object elem : Collection.array) {
+                    if ((Integer) elem % 2 != 0 && (Integer) elem % 3 == 0){
+                        System.out.println(elem);
+                    }
+
+                }
+            }
+        };
+        anonymous.isOdd();
+        System.out.println();
+
+        class LocalClass {
+            void isEven(){
+                for(Object elem : Collection.array) {
+                    if ((Integer) elem % 2 == 0 && (Integer)elem % 5 == 0) {
+                        System.out.println((Integer) elem - 100);
+                    }
+                }
+            }
+        }
+        new LocalClass().isEven();
+        System.out.println();
+
+        new Collection.Static().makeOdd();
     }
 }
