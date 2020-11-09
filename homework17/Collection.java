@@ -25,7 +25,11 @@ public class Collection {
 
      */
 
+    private static Object[] array;
 
+    public Collection(Number[] array) {
+        Collection.array = array;
+    }
 
     public ForwardIterator getForwardIterator () {
         return new ForwardIterator();
@@ -33,15 +37,12 @@ public class Collection {
 
     public BackwardIterator getBackwardIterator() {
         return new BackwardIterator();
-
     }
-    private static Object[] array;
 
-    public Collection(Number[] array) {
-        Collection.array = array;
-    }
     static class ForwardIterator implements Iterator {
-        int index = 1;
+
+        int index = 0;
+
 
         @Override
         public boolean hasNext() {
@@ -50,7 +51,7 @@ public class Collection {
 
         @Override
         public Object next() throws NoSuchElementException {
-            return array[++index];
+            return array[index++];
         }
 
 

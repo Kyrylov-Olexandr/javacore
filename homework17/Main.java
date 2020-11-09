@@ -30,6 +30,7 @@ public class Main {
         Collection collection = new Collection(a);
         System.out.println(collection.getForwardIterator().next());
         System.out.println(collection.getForwardIterator().next());
+        System.out.println(collection.getForwardIterator().index);
 
     }
 }
