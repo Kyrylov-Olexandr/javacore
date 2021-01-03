@@ -1,4 +1,4 @@
-package javacore.homework8.seasons;
+package javacore.homework12.task2.seasons;
 
 public enum Months {
     JANUARY("January", 31, Seasons.WINTER),
@@ -8,7 +8,7 @@ public enum Months {
     MAY("May", 31, Seasons.SPRING),
     JUNE("June", 30, Seasons.SUMMER),
     JULY("July", 31, Seasons.SUMMER),
-    AUGUST("August", 31,Seasons.SUMMER),
+    AUGUST("August", 31, Seasons.SUMMER),
     SEPTEMBER("September", 30, Seasons.AUTUMN),
     OCTOBER("October", 31, Seasons.AUTUMN),
     NOVEMBER("November", 30, Seasons.AUTUMN),

@@ -1,4 +1,4 @@
-package javacore.homework8.seasons;
+package javacore.homework12.task2.seasons;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -19,7 +19,7 @@ public class Main {
                 int indexOfSeason = Arrays.asList(Seasons.values()).indexOf(elem.getSeason());
 
 
-                System.out.println("Month found! Сhoose an action:");
+                System.out.println("Month found! Select an action:");
                 System.out.println(
                                 "1) Display all months with the same season\n" +
                                 "2) Display all months that have the same number of days\n" +
@@ -68,11 +68,11 @@ public class Main {
                         break;
 
                     case "5":
-                        System.out.println(indexOfSeason < 3 ? elem.getSeason().values()[indexOfSeason + 1] : elem.getSeason().values()[indexOfSeason - 3]);
+                        System.out.println(indexOfSeason < 3 ? Seasons.values()[indexOfSeason + 1] : Seasons.values()[indexOfSeason - 3]);
                         break;
 
                     case "6":
-                        System.out.println(indexOfSeason > 0 ? elem.getSeason().values()[indexOfSeason - 1] : elem.getSeason().values()[indexOfSeason + 3]);
+                        System.out.println(indexOfSeason > 0 ? Seasons.values()[indexOfSeason - 1] : Seasons.values()[indexOfSeason + 3]);
                         break;
 
                     case "7":
@@ -90,7 +90,10 @@ public class Main {
                         }
                         break;
                     case "9":
-                        System.out.println(elem.getDay() % 2 == 0 ? elem.getName() + " has an even number of days (" + elem.getDay() + ")." : elem.getName() + "has an add number of days (" + elem.getDay() + ")");
+                        System.out.println(elem.getDay() % 2 == 0
+                                ? elem.getName() + " has an even number of days (" + elem.getDay() + ")."
+                                : elem.getName() + "has an add number of days (" + elem.getDay() + ")"
+                        );
                         break;
                 }
 

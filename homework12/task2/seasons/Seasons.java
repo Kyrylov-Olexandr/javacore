@@ -1,4 +1,4 @@
-package javacore.homework8.seasons;
+package javacore.homework12.task2.seasons;
 
 public enum Seasons {
     WINTER("Winter"),
