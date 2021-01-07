@@ -1,4 +1,4 @@
-package homework7;
+package javacore.homework7;
 
 public abstract class Plane extends Control {
     int width;

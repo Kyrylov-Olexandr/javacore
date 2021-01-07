@@ -1,4 +1,4 @@
-package homework4.robots;
+package javacore.homework4.robots;
 
 public class Robot {
     void work() {

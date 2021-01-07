@@ -1,4 +1,4 @@
-package homework7;
+package javacore.homework7;
 
 public class Control {
 

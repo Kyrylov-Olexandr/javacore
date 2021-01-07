@@ -1,4 +1,4 @@
-package homework3;
+package javacore.homework3;
 
 public class Rectangle {
     int w, h;

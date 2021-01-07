@@ -6,9 +6,6 @@ public class Deputy extends Person {
     boolean isBribe;
     int bribeAmount;
 
-    public boolean isBribe() {
-        return isBribe;
-    }
 
     public int getBribeAmount() {
         return bribeAmount;
@@ -22,6 +19,7 @@ public class Deputy extends Person {
     void giveBribe() {
         Scanner scanner = new Scanner(System.in);
         if (isBribe) {
+           System.out.println("Введіть суму хабара: ");
            int bribe = scanner.nextInt();
            if (bribe > 5000) {
                System.out.println("Миліція увязнить депутата");

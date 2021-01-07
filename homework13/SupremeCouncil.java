@@ -1,6 +1,7 @@
 package javacore.homework13;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class SupremeCouncil {
     ArrayList<Fraction> fractions = new ArrayList<>();
@@ -15,22 +16,20 @@ public class SupremeCouncil {
         fractions.forEach(System.out::println);
     }
     void showFraction(String name) {
-        System.out.println(fractions.stream().filter(fraction -> fraction.name.equalsIgnoreCase(name)));
+        selectFraction(name).showAll();
     }
-    void addDeputyInFraction(Fraction fraction, String name, String surname, Boolean isBribe) {
-        fraction.addDeputy(name, surname, isBribe);
+    void addDeputyInFraction(Fraction fraction, Deputy deputy) {
+        fraction.addDeputy(deputy);
     }
-    void removeDeputy(String name, String surname) {
-        fractions.forEach(fraction -> fraction.removeDeputy(name, surname));
+    void removeDeputy(Fraction fraction, Deputy deputy) {
+        fraction.removeDeputy(deputy);
     }
-    void showBribesInFraction(Fraction fraction) {
-        fraction.showBribes();
-    }
-    void showTheMostBribe(Fraction fraction) {
-        System.out.println(fraction.theMostBribe());
-    }
-    void showAllInFraction(Fraction fraction){
-        fraction.showAll();
+    void showTheMostBribe () {
+        ArrayList<Deputy> mostBribes = new ArrayList<>();
+        fractions.forEach(fraction -> mostBribes.add(fraction.theMostBribe()));
+        mostBribes.sort(Comparator.comparingInt(Deputy::getBribeAmount));
+        System.out.println(mostBribes.get(0));
+
     }
     Fraction selectFraction(String name) {
         for (Fraction fraction : fractions) {

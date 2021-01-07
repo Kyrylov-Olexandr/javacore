@@ -1,9 +1,7 @@
 package javacore.homework13;
 
-import javacore.homework17.Collection;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Comparator;
 
 public class Fraction {
@@ -14,11 +12,11 @@ public class Fraction {
         this.name = name;
     }
 
-    void addDeputy(String name, String surname, boolean isBribe) {
-        deputies.add(new Deputy(name, surname, isBribe));
+    void addDeputy(Deputy deputy) {
+        deputies.add(deputy);
     }
-    void removeDeputy(String name, String surname) {
-        deputies.removeIf(deputy -> deputy.name.equals(name) && deputy.surname.equals(surname));
+    void removeDeputy(Deputy deputy) {
+        deputies.remove(deputy);
     }
     void showBribes() {
         deputies.forEach(deputy -> {
@@ -28,14 +26,8 @@ public class Fraction {
         });
     }
     Deputy theMostBribe() {
-        ArrayList<Deputy> sortedDeputies = new ArrayList<>(deputies);
-        sortedDeputies.sort(Comparator.comparingInt(Deputy::getBribeAmount));
-        for(Deputy deputy : sortedDeputies ) {
-            if (!sortedDeputies.iterator().hasNext()) {
-                return (deputy);
-            }
-        }
-        return null;
+        deputies.sort(Comparator.comparingInt(Deputy::getBribeAmount));
+        return deputies.get(0);
     }
     Deputy selectDeputy(String name, String surname) {
         for (Deputy deputy : deputies) {
