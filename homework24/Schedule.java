@@ -14,11 +14,14 @@ public class Schedule {
     }
 
     void showSeances () {
+        System.out.println("========================\n" +
+                           "     РОЗКЛАД СЕАНСІВ:");
         int i = 1;
         for (Seance seance : seances) {
-            System.out.println(i + ") " + seance);
+            System.out.println(i + ". " + seance);
             i++;
         }
+        System.out.println("========================\n");
     }
 
 }

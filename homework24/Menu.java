@@ -9,10 +9,12 @@ public class Menu {
 
     public void main() {
         System.out.println(
-                        "Головне меню:\n" +
-                        "1) Фільмотека\n" +
-                        "2) Розклад сеансів\n" +
-                        "3) Вийти"
+                "========================\n" +
+                "       ГОЛОВНЕ МЕНЮ::\n" +
+                "    1) Фільмотека\n" +
+                "    2) Розклад сеансів\n" +
+                "    3) Вийти\n" +
+                "========================"
         );
         switch (scanner.nextLine()) {
             case "1" -> showLibrary();
@@ -35,10 +37,10 @@ public class Menu {
         System.out.println("Назва: ");
         String title = scanner.nextLine();
         System.out.println("Тривалість: \n" + "Годин - ");
-        int hour = scanner.nextInt();
+        int hour = Integer.parseInt(scanner.nextLine());
         System.out.println("Хвилин - " );
-        int min = scanner.nextInt();
-        Time duration = new Time(min, hour);
+        int min = Integer.parseInt(scanner.nextLine());
+        Time duration = new Time(hour, min);
         return new Movie(title, duration);
     }
     private Seance selectSeance(Schedule schedule) {
@@ -51,13 +53,16 @@ public class Menu {
         Movie movie = selectMovie();
         System.out.print("Час початку (наприклад '12:10'): ");
         String[] startTimeArr = scanner.nextLine().split(":");
-        int min = Integer.parseInt(startTimeArr[0]);
-        int hour = Integer.parseInt(startTimeArr[1]);
+        int hour = Integer.parseInt(startTimeArr[0]);
+        int min = Integer.parseInt(startTimeArr[1]);
         assert movie != null;
-        return new Seance(movie, new Time(min,hour));
+        return new Seance(movie, new Time(hour,min));
     }
     private void showLibrary() {
+        System.out.println("========================\n" +
+                           "       ФІЛЬМОТЕКА");
         cinema.moviesLibrary.forEach(System.out::println);
+        System.out.println("========================\n");
         System.out.println(
                         "1) Додати фільм\n" +
                         "2) Видалити фільм\n" +
@@ -67,6 +72,7 @@ public class Menu {
             case "2" -> cinema.removeMovie(selectMovie());
             case "3" -> main();
         }
+        showLibrary();
     }
     private void showDays() {
         for (int i = 0; i < Days.values().length; i++) {
@@ -76,16 +82,18 @@ public class Menu {
     private void showSchedule() {
         System.out.println("Виберіть день:");
         showDays();
-        String day = scanner.nextLine();
-        Schedule schedule = cinema.schedules.get(Days.values()[Integer.parseInt(day)-1]);
+        int dayNum = Integer.parseInt(scanner.nextLine()) - 1;
+        String day = Days.values()[dayNum].getTitle();
+        Schedule schedule = cinema.schedules.get(Days.values()[dayNum]);
         schedule.showSeances();
         System.out.println("1) Додати сеанс\n" +
-                           "2) Видалити сеанс" +
+                           "2) Видалити сеанс\n" +
                            "3) Назад");
         switch (scanner.nextLine()) {
             case "1" -> cinema.addSeance(createSeance(), day);
             case "2" -> cinema.removeSeance(selectSeance(schedule), day);
             case "3" -> main();
         }
+        showSchedule();
     }
 }

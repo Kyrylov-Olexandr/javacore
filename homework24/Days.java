@@ -15,6 +15,14 @@ public enum Days {
         this.title = title;
     }
 
+    public  static Days getValueFromTitle(String title) {
+        for (Days day : Days.values()) {
+            if (day.getTitle().equals(title)) {
+                return day;
+            }
+        }
+        return Days.FRIDAY;
+    }
     public String getTitle() {
         return title;
     }

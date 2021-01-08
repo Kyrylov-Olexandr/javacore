@@ -4,8 +4,6 @@ import java.util.*;
 public class Cinema {
     TreeMap<Days, Schedule> schedules = new TreeMap<>();;
     ArrayList<Movie> moviesLibrary = new ArrayList<>();
-    Time open;
-    Time close;
 
     Cinema() {
         for (Days day : Days.values()) {
@@ -17,10 +15,8 @@ public class Cinema {
         moviesLibrary.add(movie);
     }
     void addSeance (Seance seance, String day) {
-        Schedule schedule = schedules.get(Days.valueOf(day));
+        Schedule schedule = schedules.get(Days.getValueFromTitle(day));
         schedule.addSeance(seance);
-
-
     }
     void removeMovie(Movie movie) {
         moviesLibrary.remove(movie);

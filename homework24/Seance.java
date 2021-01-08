@@ -18,7 +18,7 @@ public class Seance implements Comparable<Seance> {
             min -= 60;
             hour++;
         }
-        endTime = new Time(min, hour);
+        endTime = new Time(hour, min);
         timeInMinutes = startTime.hour * 60 + startTime.min;
     }
 
@@ -33,6 +33,6 @@ public class Seance implements Comparable<Seance> {
     }
 
     public int compareTo(Seance s) {
-        return Integer.compare(s.timeInMinutes, timeInMinutes);
+        return Integer.compare(timeInMinutes, s.timeInMinutes);
     }
 }

@@ -11,6 +11,6 @@ public class Movie {
 
     @Override
     public String toString() {
-        return title + ", тривалість: " + duration.hour + "год " + duration.hour + "хв" + ";";
+        return title + ", тривалість: " + duration.hour + "год " + duration.min + "хв" + ";";
     }
 }
